@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BingoCell from './components/BingoCell';
 import Radio from './components/Radio';
 import './App.css';
+import logo from './github.svg';
 
 class App extends Component {
 
@@ -75,12 +76,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          <div className="github">
+              <a href={"https://github.com/Magssch/Tinder-bingo-web/blob/master/README.md"}>
+                  <img src={logo} style={{maxHeight: 50}} alt="Github" />
+                  <br/>
+                  <div style={{fontSize: 12}}>+ Regler</div>
+              </a>
+          </div>
           <header className="App-header">
             <span className="logo">
               <span role="img" aria-label="flame">🔥</span>
               <span> Tinderbingo!</span>
             </span>
-            <div style={{display: "flex", flexDirection: "row", marginTop: 5}}>
+            <div className="categories">
               <Radio text={"Menn"} name={"gender"} value={"m"} checked={true} handleChange={this.handleChange}/>
               <Radio text={"Kvinner"} name={"gender"} value={"f"} handleChange={this.handleChange}/>
               <Radio text={"Begge"} name={"gender"} value={"b"} handleChange={this.handleChange}/>

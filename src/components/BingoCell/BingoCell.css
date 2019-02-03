@@ -1,5 +1,8 @@
 .cell {
     background-color: rgba(0, 0, 0, 0.8);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     text-align: center;
@@ -9,13 +12,15 @@
     font-weight: bold;
     overflow: hidden;
     word-break: break-word;
+    transition: 0.2s;
 }
 
 .cell-selected {
     background-image: url('backgroundt.png') ;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 80%;
+    background-size: auto 70%;
+    transition: 0.2s;
 }
 
 .cell:hover {
@@ -37,9 +42,12 @@
 @media all and (max-width: 600px) {
     .cell {
         font-size: 12px;
+        background-size: auto 70%;
         padding: 9px;
+        transition: 0.2s;
     }
     .cell-selected {
         background-size: auto 40%;
+        transition: 0.2s;
     }
 }
