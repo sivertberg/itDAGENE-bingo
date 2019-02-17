@@ -36,11 +36,13 @@ class App extends Component {
                   k = Math.floor(Math.random() * 103);
               }
           }
+
           else if(value === "f") {
               while (68 < k && k < 87) {
                   k = Math.floor(Math.random() * 103);
               }
           }
+
           while(picks.indexOf(k) > -1) {
               k = Math.floor(Math.random() * 69);
           }
