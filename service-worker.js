@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Tinder-bingo-web/precache-manifest.2ec0afcdfe734f086bf13c5a4d14a813.js"
+  "/Tinder-bingo-web/precache-manifest.7ce06800ea83e73bda9d048985366296.js"
 );
 
 workbox.clientsClaim();
