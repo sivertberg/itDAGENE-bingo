@@ -10,6 +10,7 @@ class BingoCell extends Component {
     handleClick = () => {
         let isClicked = !this.state.clicked;
         this.setState({clicked: isClicked});
+        this.props.handleCellChange(this.props.id);
     };
 
     render() {
