@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "2d6bede86dac0cc08a09",
-    "url": "/Tinder-bingo-web/static/css/main.ba024ffc.chunk.css"
+    "revision": "8576891222aed8e00946",
+    "url": "/Tinder-bingo-web/static/css/main.e328178f.chunk.css"
   },
   {
-    "revision": "2d6bede86dac0cc08a09",
-    "url": "/Tinder-bingo-web/static/js/main.2d6bede8.chunk.js"
+    "revision": "8576891222aed8e00946",
+    "url": "/Tinder-bingo-web/static/js/main.85768912.chunk.js"
   },
   {
-    "revision": "5fb161e1637aa45e9c43",
-    "url": "/Tinder-bingo-web/static/js/1.5fb161e1.chunk.js"
+    "revision": "0dc43ab9c20164fb8dee",
+    "url": "/Tinder-bingo-web/static/js/1.0dc43ab9.chunk.js"
   },
   {
     "revision": "8eed58b04fb210273730",
@@ -24,11 +24,11 @@ self.__precacheManifest = [
     "url": "/Tinder-bingo-web/static/media/backgroundt.2abdc64b.png"
   },
   {
-    "revision": "ca77f28e9d4e0bd6ee9c1ad6dacca82b",
-    "url": "/Tinder-bingo-web/static/media/bingo.ca77f28e.txt"
+    "revision": "93c4e5b4498ce06dede76f4c4e0aa77d",
+    "url": "/Tinder-bingo-web/static/media/bingo.93c4e5b4.txt"
   },
   {
-    "revision": "3e69cde34925cd646c22409eedb7f6d0",
+    "revision": "d2a80eb442ca8e72ec29a59b75aea944",
     "url": "/Tinder-bingo-web/index.html"
   }
 ];
