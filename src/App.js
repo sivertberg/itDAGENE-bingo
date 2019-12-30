@@ -3,6 +3,7 @@ import BingoCell from './components/BingoCell';
 import Radio from './components/Radio';
 import './App.css';
 import logo from './github.svg';
+import fireImg from './components/BingoCell/backgroundt.png';
 
 class App extends Component {
 
@@ -20,12 +21,21 @@ class App extends Component {
       bingo_cols: [],
       bingo_diagonal_down: false,
       bingo_diagonal_up: false,
-      is_bingo: false
+      is_bingo: false,
+      bingo_type: "0"
   };
 
   componentDidMount() {
-      this.generateBoard();
+      if(!!localStorage.getItem('bingoState')) {
+          this.setState(JSON.parse(localStorage.getItem('bingoState')))
+      } else {
+          this.generateBoard("m");
+      }
       document.title = "Tinderbingo"
+  }
+
+  componentDidUpdate() {
+      localStorage.setItem('bingoState', JSON.stringify(this.state));
   }
 
   handleChange = (value) => {
@@ -40,7 +50,6 @@ class App extends Component {
       let bingo_diagonal_down = this.state.bingo_diagonal_down;
       let bingo_diagonal_up = this.state.bingo_diagonal_up;
       let is_bingo = false;
-      console.log(this.state.chosen_cells);
 
       for (let i = 0; i < 4; i++) {
           if(!this.state.bingo_cols[i]) {
@@ -58,40 +67,32 @@ class App extends Component {
               }
           }
       }
-
       if (!bingo_diagonal_down) {
           let diagBingoDown = true;
           for (let i = 0; i < 4; i++) {
-
               if (!cells[i][i]) {
                   diagBingoDown = false;
               }
           }
-
           if(diagBingoDown) {
               console.log("diagonal bingo!");
               bingo_diagonal_down = true;
               is_bingo = true;
           }
       }
-
       if(!bingo_diagonal_up) {
           let diagBingoUp = true;
           for (let i = 0; i < 4; i++) {
-
               if (!cells[3-i][i]) {
                   diagBingoUp = false;
               }
           }
-
           if(diagBingoUp) {
               console.log("diagonal bingo!");
               bingo_diagonal_up = true;
               is_bingo = true;
           }
       }
-
-
       for (let i = 0; i < 4; i++) {
           if(!this.state.bingo_rows[i]) {
               let rowBingo = true;
@@ -108,58 +109,58 @@ class App extends Component {
               }
           }
       }
-
-      this.setState({
+      const newState = {
+          text: this.state.text,
           chosen_cells: cells,
           bingo_rows: bingo_rows,
           bingo_cols: bingo_cols,
           bingo_diagonal_down: bingo_diagonal_down,
           bingo_diagonal_up: bingo_diagonal_up,
-          is_bingo: is_bingo
-      });
+          is_bingo: is_bingo,
+          bingo_id: this.state.bingo_id,
+          bingo_type: this.state.bingo_type
+      };
+      this.setState(newState);
+      localStorage.setItem('bingoState', JSON.stringify(newState));
   };
 
-  static generatePicks(value = "b") {
+  static generatePicks(value = "m") {
       let picks = [];
       for (let i = 0; i < 16; i++) {
 
-          let k = Math.floor(Math.random() * 103);
+          let k = Math.floor(Math.random() * 96);
 
           if(value === "m") {
-              while (k >= 87) {
-                  k = Math.floor(Math.random() * 103);
+              while (k >= 81) {
+                  k = Math.floor(Math.random() * 96);
               }
           }
 
           else if(value === "f") {
-              while (68 < k && k < 87) {
-                  k = Math.floor(Math.random() * 103);
+              while (66 < k && k < 81) {
+                  k = Math.floor(Math.random() * 96);
               }
           }
 
           while(picks.indexOf(k) > -1) {
-              k = Math.floor(Math.random() * 69);
+              k = Math.floor(Math.random() * 66);
           }
           picks[i] = k;
       }
       return picks;
   }
 
-  generateBoard = (value = "b") => {
+  generateBoard = (value) => {
       let rawFile = new XMLHttpRequest();
       rawFile.open("GET", require("./bingo.txt"), false);
       rawFile.onreadystatechange = () => {
           if (rawFile.readyState === 4) {
               if (rawFile.status === 200 || rawFile.status === 0) {
-
                   let allText = rawFile.responseText;
-
                   let picks = App.generatePicks(value);
-
                   let pickedText = allText.split("\n").filter(
                       (item, key) => { return picks.indexOf(key) > -1 }
                   );
-
                   let matrix = [];
                   for(let i=0; i<4; i++) {
                       matrix[i] = [];
@@ -167,8 +168,7 @@ class App extends Component {
                           matrix[i][j] = false;
                       }
                   }
-
-                  this.setState({
+                  const initState = {
                       text: pickedText,
                       bingo_id: this.state.bingo_id+16,
                       chosen_cells: matrix,
@@ -176,17 +176,31 @@ class App extends Component {
                       bingo_cols: [],
                       bingo_diagonal_down: false,
                       bingo_diagonal_up: false,
-                  });
-
+                      bingo_type: value
+                  };
+                  localStorage.setItem('bingoState', JSON.stringify(initState));
+                  this.setState(initState);
               }
           }
       };
       rawFile.send(null);
   };
 
+  compareRadioValue(value) {
+      return this.state.bingo_type.valueOf() === value.valueOf()
+  }
+
   render() {
     return (
       <div className="App">
+          <div className={this.state.is_bingo ? "popup show" : "popup"} onClick={() => this.setState({is_bingo: false})}>
+              <div className="bingotext">
+                  <span role="img" aria-label="flame">🔥</span>
+                  <span>Bingo!</span>
+                  <span role="img" aria-label="flame">🔥</span>
+                  <p>(Trykk for å lukke)</p>
+              </div>
+          </div>
 
           <div className="github">
               <a href={"https://github.com/Magssch/Tinder-bingo-web"}>
@@ -195,33 +209,24 @@ class App extends Component {
                   <div>Regler</div>
               </a>
           </div>
-          <header className="App-header">
+          <div className="App-header">
             <span className="logo">
-              <span role="img" aria-label="flame">🔥</span>
+              <img src={fireImg} style={{maxHeight: 30, maxWidth: "6vw"}} alt="🔥" />
               <span> Tinderbingo</span>
             </span>
             <div className="categories">
-              <Radio text={"Menn"} name={"gender"} value={"m"} checked={true} handleChange={this.handleChange}/>
-              <Radio text={"Kvinner"} name={"gender"} value={"f"} handleChange={this.handleChange}/>
-              <Radio text={"Begge"} name={"gender"} value={"b"} handleChange={this.handleChange}/>
+              <Radio text={"Menn"} name={"gender"} value={"m"} checked={this.compareRadioValue("m")} handleChange={this.handleChange}/>
+              <Radio text={"Kvinner"} name={"gender"} value={"f"} checked={this.compareRadioValue("f")} handleChange={this.handleChange}/>
+              <Radio text={"Begge"} name={"gender"} value={"b"} checked={this.compareRadioValue("b")} handleChange={this.handleChange}/>
             </div>
-          </header>
+          </div>
           <div className="bingoBoard">
               {
                 this.state.text.map((item, key = 0) => {
                     key++;
-                    return <BingoCell key={this.state.bingo_id + key} id={key-1} content={item} handleCellChange={this.handleCellChange}/>;
+                    return <BingoCell key={this.state.bingo_id + key} id={key-1} content={item} clicked={this.state.chosen_cells[(key-1)%4][Math.floor((key-1)/4)]} handleCellChange={this.handleCellChange}/>;
                 })
               }
-          </div>
-
-          <div className={this.state.is_bingo ? "popup show" : "popup"} onClick={() => this.setState({is_bingo: false})}>
-              <div className="bingotext">
-                  <span role="img" aria-label="flame">🔥</span>
-                  <span>Bingo!</span>
-                  <span role="img" aria-label="flame">🔥</span>
-                  <p>(Trykk for å lukke)</p>
-              </div>
           </div>
       </div>
     );

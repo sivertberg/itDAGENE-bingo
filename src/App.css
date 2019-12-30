@@ -65,15 +65,16 @@ a, a:hover, a:active, a:visited {
 }
 
 .popup {
-  z-index: 1000;
+  z-index: 10000;
   width: 100vw;
   min-height: 100vh;
-  font-size: 14vw;
+  font-size: 10vw;
   background:rgba(0,0,0,0.9);
   animation: opacity 1s;
   opacity: 0;
   display: none;
   cursor: pointer;
+  position:fixed;
 }
 
 .show {
