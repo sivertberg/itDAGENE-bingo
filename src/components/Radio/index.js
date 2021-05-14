@@ -1,5 +1,4 @@
 import React from "react";
-import "./radio.css";
 
 const Radio = ({ name, text, value, checked, handleChange }) => {
   return (

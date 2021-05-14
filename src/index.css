@@ -286,3 +286,141 @@ a:visited {
     width: 100%;
   }
 }
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-size: 25px;
+  user-select: none;
+  color: white;
+  margin: 8px 30px 15px 30px;
+}
+
+.container:hover {
+  color: #ccc;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+.container:hover input ~ .checkmark {
+  background: #ccc linear-gradient(to bottom, #4c4c4c, #ccc);
+}
+.container input:checked ~ .checkmark {
+  background: #2196f3
+    linear-gradient(to top, rgba(5, 132, 242, 1), rgba(10, 175, 241, 1));
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 8px;
+  left: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    font-size: 16px;
+    margin: 8px 15px;
+    padding-left: 20px;
+  }
+
+  .checkmark {
+    height: 15px;
+    width: 15px;
+  }
+
+  .container .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+.cell {
+  background-color: rgba(0, 0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  word-break: break-word;
+  transition: 0.2s;
+}
+
+.cell-selected {
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 70%;
+  transition: 0.2s;
+}
+
+.cell:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.cell-full {
+  width: 100%;
+  display: flex;
+}
+.cell-full-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cell p {
+  margin: auto;
+}
+
+@media all and (max-height: 650px) {
+  .cell {
+    font-size: 12px;
+    padding: 9px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .cell {
+    font-size: 2.5vw;
+    background-size: auto 70%;
+    padding: 9px;
+    transition: 0.2s;
+  }
+  .cell-selected {
+    background-size: auto 40%;
+    transition: 0.2s;
+  }
+}
