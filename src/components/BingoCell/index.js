@@ -1,5 +1,4 @@
 import React from "react";
-import "./bingo-cell.css";
 
 const BingoCell = ({ id, content, clicked, handleCellChange }) => {
   return (
