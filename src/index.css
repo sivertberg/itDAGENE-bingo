@@ -1,13 +1,21 @@
 body {
-  background-color: #282c34;
+  background-color: #424242;
   user-select: none;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "ChaletNewYork";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "ChaletNewYork";
+  src: local("ChaletNewYork"),
+    url(./assets/chalet-new-york-nineteen-seventy.ttf) format("truetype");
+}
+
+button {
+  font-family: "ChaletNewYork";
 }
 
 .App {
