@@ -1,0 +1,60 @@
+.cell {
+  background-color: rgba(0, 0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  word-break: break-word;
+  transition: 0.2s;
+}
+
+.cell-selected {
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 70%;
+  transition: 0.2s;
+}
+
+.cell:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.cell-full {
+  width: 100%;
+  display: flex;
+}
+.cell-full-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cell p {
+  margin: auto;
+}
+
+@media all and (max-height: 650px) {
+  .cell {
+    font-size: 12px;
+    padding: 9px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .cell {
+    font-size: 2.5vw;
+    background-size: auto 70%;
+    padding: 9px;
+    transition: 0.2s;
+  }
+  .cell-selected {
+    background-size: auto 40%;
+    transition: 0.2s;
+  }
+}

@@ -1,4 +1,6 @@
 body {
+  background-color: #282c34;
+  user-select: none;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,7 +10,271 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  min-height: 15vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(10px + 3vmin);
+  color: white;
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  margin-left: 3vw;
+  display: flex;
+}
+
+.logo > img {
+  margin: auto 1vw auto auto;
+  height: calc(10px + 3vmin);
+}
+
+.logo > span {
+  margin: auto;
+}
+
+.github {
+  transition: 0.2s;
+  font-size: 15px;
+  border-radius: 100%;
+}
+
+.bingoBoard {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+  width: 100vw;
+  max-width: 110vh;
+  height: 100vw;
+  max-height: 85vh;
+  min-height: 85vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  margin: 15vh auto auto;
+}
+
+.newBoard {
+  transition: 0.1s;
+  margin: 0 20px 0 auto;
+  height: 7vh;
+  width: 10vh;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+}
+
+.newBoard > button {
+  display: block;
+  border: 0;
+  color: #ffffff;
+  height: 7vh;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+}
+
+.rules {
+  transition: 0.1s;
+  margin: 0 20px 0 0;
+  height: 7vh;
+  width: 10vh;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+}
+
+.rules > button {
+  display: block;
+  border: 0;
+  color: #ffffff;
+  height: 7vh;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+}
+
+.categories {
+  width: 100%;
+  justify-content: center;
+  transition: 0.1s;
+  display: flex;
+  flex-direction: row;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.popup {
+  z-index: 10000;
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  animation: opacity 1s;
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+}
+
+.show {
+  visibility: visible;
+  animation: opacity 1s;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bingotextUpper {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  margin: auto auto 5rem auto;
+  color: white;
+  padding: 0 2rem;
+}
+
+.bingotext {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: white;
+  padding: 0 2rem;
+}
+
+.bingotext > img {
+  height: 10vw;
+  margin: auto 2rem;
+}
+
+.textWindow {
+  font-size: 1.4rem;
+  color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.textWindow > button {
+  font-size: 2rem;
+  display: block;
+  border: 0;
+  color: #ffffff;
+  height: 15rem;
+  width: 40vw;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
+  margin: 20rem auto auto auto;
+}
+.popup > p {
+  font-size: 1.5rem;
+  color: white;
+  margin: 5vh auto;
+  padding: 0 1rem;
+}
+
+@media all and (max-width: 768px) {
+  .popup {
+    font-size: 1rem;
+  }
+  .popup > p {
+    margin: 5vh auto 20vh auto;
+  }
+  .bingotext {
+    font-size: 2rem;
+  }
+
+  .textWindow {
+    font-size: 1rem;
+    margin: 10vh auto;
+  }
+
+  .textWindow > button {
+    font-size: 1rem;
+    margin: 2.5vh auto;
+  }
+  .App-header {
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.2s;
+    font-size: 4vh;
+  }
+  .logo {
+    margin-left: 0;
+  }
+
+  .logo > img {
+    height: 3.5vh;
+  }
+  .newBoard {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 30%;
+    margin: 0;
+  }
+  .newBoard > button {
+    width: 100%;
+  }
+
+  .bingoBoard {
+    max-height: 70%;
+    min-height: 70%;
+    bottom: unset;
+  }
+
+  .github {
+    transition: 0.2s;
+    font-size: 15px;
+    max-width: unset;
+    position: absolute;
+    bottom: 10px;
+  }
+  .github > a > img {
+    max-height: 7vh;
+  }
+
+  .rules {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30%;
+    margin: 0;
+  }
+  .rules > button {
+    width: 100%;
+  }
 }

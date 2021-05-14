@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
-import './Radio.css';
+import React from "react";
+import "./radio.css";
 
-class Radio extends Component {
-
-    // Hvis knappen endres, send melding om dette til parent.
-    handleChange = () => {
-        this.props.handleChange(this.props.value);
-    };
-
-    render() {
-        return (
-            <label className="container">{this.props.text}
-                <input type="radio" name={this.props.name} value={this.props.value} checked={this.props.checked} onChange={this.handleChange}/>
-                <span className="checkmark"/>
-            </label>
-
-        );
-    }
-}
+const Radio = ({ name, text, value, checked, handleChange }) => {
+  return (
+    <label className="container">
+      {text}
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={handleChange}
+      />
+      <span className="checkmark" />
+    </label>
+  );
+};
 
 export default Radio;
