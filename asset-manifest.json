@@ -1,16 +1,22 @@
 {
-  "main.css": "/Tinder-bingo-web/static/css/main.e328178f.chunk.css",
-  "main.js": "/Tinder-bingo-web/static/js/main.85768912.chunk.js",
-  "main.js.map": "/Tinder-bingo-web/static/js/main.85768912.chunk.js.map",
-  "static/js/1.0dc43ab9.chunk.js": "/Tinder-bingo-web/static/js/1.0dc43ab9.chunk.js",
-  "static/js/1.0dc43ab9.chunk.js.map": "/Tinder-bingo-web/static/js/1.0dc43ab9.chunk.js.map",
-  "runtime~main.js": "/Tinder-bingo-web/static/js/runtime~main.8eed58b0.js",
-  "runtime~main.js.map": "/Tinder-bingo-web/static/js/runtime~main.8eed58b0.js.map",
-  "static/media/github.svg": "/Tinder-bingo-web/static/media/github.a0b866ca.svg",
-  "static/media/BingoCell.css": "/Tinder-bingo-web/static/media/backgroundt.2abdc64b.png",
-  "static/media/bingo.txt": "/Tinder-bingo-web/static/media/bingo.93c4e5b4.txt",
-  "static/css/main.e328178f.chunk.css.map": "/Tinder-bingo-web/static/css/main.e328178f.chunk.css.map",
-  "index.html": "/Tinder-bingo-web/index.html",
-  "precache-manifest.a78f35419731168b7fed06379219eabb.js": "/Tinder-bingo-web/precache-manifest.a78f35419731168b7fed06379219eabb.js",
-  "service-worker.js": "/Tinder-bingo-web/service-worker.js"
+  "files": {
+    "main.css": "/tinder-bingo-web/static/css/main.58d97117.chunk.css",
+    "main.js": "/tinder-bingo-web/static/js/main.754ad0ef.chunk.js",
+    "main.js.map": "/tinder-bingo-web/static/js/main.754ad0ef.chunk.js.map",
+    "runtime-main.js": "/tinder-bingo-web/static/js/runtime-main.9f486f5b.js",
+    "runtime-main.js.map": "/tinder-bingo-web/static/js/runtime-main.9f486f5b.js.map",
+    "static/js/2.9a187e7e.chunk.js": "/tinder-bingo-web/static/js/2.9a187e7e.chunk.js",
+    "static/js/2.9a187e7e.chunk.js.map": "/tinder-bingo-web/static/js/2.9a187e7e.chunk.js.map",
+    "index.html": "/tinder-bingo-web/index.html",
+    "static/css/main.58d97117.chunk.css.map": "/tinder-bingo-web/static/css/main.58d97117.chunk.css.map",
+    "static/js/2.9a187e7e.chunk.js.LICENSE.txt": "/tinder-bingo-web/static/js/2.9a187e7e.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/tinder-bingo-web/static/media/chalet-new-york-nineteen-seventy.573d2449.ttf",
+    "static/media/github.1dd51261.svg": "/tinder-bingo-web/static/media/github.1dd51261.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f486f5b.js",
+    "static/js/2.9a187e7e.chunk.js",
+    "static/css/main.58d97117.chunk.css",
+    "static/js/main.754ad0ef.chunk.js"
+  ]
 }
