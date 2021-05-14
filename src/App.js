@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import BingoCell from "./components/BingoCell";
 import Radio from "./components/Radio";
 import logo from "./github.svg";
-import fireImg from "./components/BingoCell/backgroundt.png";
-import fireImgOpaque from "./components/BingoCell/background.png";
+import fireImgOpaque from "./assets/background.png";
 import bingopile from "./bingo.json";
 class App extends Component {
   constructor(props) {
