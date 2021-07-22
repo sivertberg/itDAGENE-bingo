@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/tinder-bingo/static/css/main.44368936.chunk.css",
-    "main.js": "/tinder-bingo/static/js/main.02fd7803.chunk.js",
-    "main.js.map": "/tinder-bingo/static/js/main.02fd7803.chunk.js.map",
+    "main.css": "/tinder-bingo/static/css/main.345130a0.chunk.css",
+    "main.js": "/tinder-bingo/static/js/main.150d2615.chunk.js",
+    "main.js.map": "/tinder-bingo/static/js/main.150d2615.chunk.js.map",
     "runtime-main.js": "/tinder-bingo/static/js/runtime-main.26f67887.js",
     "runtime-main.js.map": "/tinder-bingo/static/js/runtime-main.26f67887.js.map",
     "static/js/2.9a187e7e.chunk.js": "/tinder-bingo/static/js/2.9a187e7e.chunk.js",
     "static/js/2.9a187e7e.chunk.js.map": "/tinder-bingo/static/js/2.9a187e7e.chunk.js.map",
     "index.html": "/tinder-bingo/index.html",
-    "static/css/main.44368936.chunk.css.map": "/tinder-bingo/static/css/main.44368936.chunk.css.map",
+    "static/css/main.345130a0.chunk.css.map": "/tinder-bingo/static/css/main.345130a0.chunk.css.map",
     "static/js/2.9a187e7e.chunk.js.LICENSE.txt": "/tinder-bingo/static/js/2.9a187e7e.chunk.js.LICENSE.txt",
     "static/media/index.css": "/tinder-bingo/static/media/chalet-new-york-nineteen-seventy.573d2449.ttf",
     "static/media/github.1dd51261.svg": "/tinder-bingo/static/media/github.1dd51261.svg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.26f67887.js",
     "static/js/2.9a187e7e.chunk.js",
-    "static/css/main.44368936.chunk.css",
-    "static/js/main.02fd7803.chunk.js"
+    "static/css/main.345130a0.chunk.css",
+    "static/js/main.150d2615.chunk.js"
   ]
 }
