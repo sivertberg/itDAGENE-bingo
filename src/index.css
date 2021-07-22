@@ -93,6 +93,7 @@ a:visited {
 }
 
 .newBoard > button {
+  font-size: 0.75rem;
   display: block;
   border: 0;
   color: #ffffff;
@@ -167,9 +168,14 @@ a:visited {
   font-size: 4rem;
   display: flex;
   align-items: center;
-  margin: auto auto 5rem auto;
+  margin: auto auto 0 auto;
   color: white;
   padding: 0 2rem;
+}
+
+.bingotextUpper > img {
+  max-width: 25%;
+  margin: 0 auto;
 }
 
 .bingotext {
@@ -187,7 +193,7 @@ a:visited {
 }
 
 .textWindow {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: white;
   margin: auto;
   display: flex;
@@ -216,10 +222,10 @@ a:visited {
 
 @media all and (max-width: 768px) {
   .popup {
-    font-size: 1rem;
+    font-size: 0.5rem;
   }
   .popup > p {
-    margin: 5vh auto 20vh auto;
+    margin: 2vh auto auto auto;
   }
   .bingotext {
     font-size: 2rem;
@@ -227,11 +233,16 @@ a:visited {
 
   .textWindow {
     font-size: 1rem;
-    margin: 10vh auto;
+    margin: 2vh auto;
+  }
+
+  .textWindow > p {
+    margin: 0.25rem auto;
   }
 
   .textWindow > button {
     font-size: 1rem;
+    height: 8rem;
     margin: 2.5vh auto;
   }
   .App-header {
@@ -311,8 +322,7 @@ a:visited {
   background: #ccc linear-gradient(to bottom, #4c4c4c, #ccc);
 }
 .container input:checked ~ .checkmark {
-  background: #2196f3
-    linear-gradient(to top, rgba(5, 132, 242, 1), rgba(10, 175, 241, 1));
+  background: #fd297b linear-gradient(45deg, #fd297b, #ff5864, #ff655b);
 }
 
 .checkmark {
@@ -394,6 +404,7 @@ a:visited {
 }
 
 .cell-full {
+  padding: 9px;
   width: 100%;
   display: flex;
 }
@@ -404,23 +415,20 @@ a:visited {
 .cell p {
   margin: auto;
 }
-
-@media all and (max-height: 650px) {
-  .cell {
-    font-size: 12px;
-    padding: 9px;
-  }
-}
-
 @media all and (max-width: 800px) {
   .cell {
     font-size: 2.5vw;
     background-size: auto 70%;
-    padding: 9px;
     transition: 0.2s;
   }
   .cell-selected {
     background-size: auto 40%;
     transition: 0.2s;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .cell {
+    font-size: 3.5vw;
   }
 }

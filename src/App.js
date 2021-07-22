@@ -315,7 +315,7 @@ class App extends Component {
             </button>
           </div>
           <div className="github">
-            <a href={"https://github.com/magssch/tinder-bingo-web"}>
+            <a href={"https://github.com/magssch/tinder-bingo"}>
               <img src={logo} alt="Github" />
             </a>
           </div>
