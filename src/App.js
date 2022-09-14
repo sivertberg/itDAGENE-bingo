@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import BingoCell from "./components/BingoCell";
-import Radio from "./components/Radio";
 import logo from "./github.svg";
 import fireImgOpaque from "./assets/background.png";
 import bingopile from "./bingo.json";
+import ReactDom from "react-dom";
+import Popup from "react-popup";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +40,14 @@ class App extends Component {
 
   handleCellChange = (value) => {
     console.log(this.state.text[value]);
+
+    Popup.alert("Skrt");
+    /*let secret = prompt("Hva er koden?");
+
+    if (secret != this.state.text[value]) {
+      alert("Feil kode");
+      return;
+    }*/
 
     let cells = this.state.chosen_cells;
     cells[value % 3][Math.floor(value / 3)] =
@@ -123,34 +133,14 @@ class App extends Component {
   };
 
   generatePicks(bingopile) {
-    const femaleOptions = bingopile.optionsFemale.concat(
-      bingopile.optionsUnisex
-    );
-    const maleOptions = bingopile.optionsMale.concat(bingopile.optionsUnisex);
-    const unisexOptions = bingopile.optionsUnisex.concat(
-      bingopile.optionsMale.concat(bingopile.optionsFemale)
-    );
+    const options = bingopile.optionsBedrifter;
     let picks = [];
     for (let i = 0; i < 9; i++) {
-      if (this.state.bingo_type === "m") {
-        let k = Math.floor(Math.random() * maleOptions.length);
-        while (picks.indexOf(maleOptions[k]) > -1) {
-          k = Math.floor(Math.random() * maleOptions.length);
-        }
-        picks[i] = maleOptions[k];
-      } else if (this.state.bingo_type === "f") {
-        let k = Math.floor(Math.random() * femaleOptions.length);
-        while (picks.indexOf(femaleOptions[k]) > -1) {
-          k = Math.floor(Math.random() * femaleOptions.length);
-        }
-        picks[i] = femaleOptions[k];
-      } else {
-        let k = Math.floor(Math.random() * unisexOptions.length);
-        while (picks.indexOf(unisexOptions[k]) > -1) {
-          k = Math.floor(Math.random() * unisexOptions.length);
-        }
-        picks[i] = unisexOptions[k];
+      let k = Math.floor(Math.random() * options.length);
+      while (picks.indexOf(options[k]) > -1) {
+        k = Math.floor(Math.random() * options.length);
       }
+      picks[i] = options[k];
     }
     return picks;
   }
@@ -258,31 +248,6 @@ class App extends Component {
         </div>
         <div className={this.state.confirmReset ? "popup show" : "popup"}>
           <div className="textWindow">
-            <p>Hvilke(t) kjønner sveiper dere på?</p>
-            <div className="categories">
-              <Radio
-                text={"Menn"}
-                name={"gender"}
-                value={"m"}
-                checked={this.compareRadioValue("m")}
-                handleChange={() => this.setState({ bingo_type: "m" })}
-              />
-              <Radio
-                text={"Kvinner"}
-                name={"gender"}
-                value={"f"}
-                checked={this.compareRadioValue("f")}
-                handleChange={() => this.setState({ bingo_type: "f" })}
-              />
-              <Radio
-                text={"Unisex"}
-                name={"gender"}
-                value={"b"}
-                checked={this.compareRadioValue("b")}
-                handleChange={() => this.setState({ bingo_type: "b" })}
-              />
-            </div>
-            <br />
             <button
               onClick={() => {
                 this.generateBoard();
@@ -304,11 +269,11 @@ class App extends Component {
         <div className="App-header">
           <span className="logo">
             <img src={fireImgOpaque} alt="Abakus logo" />
-            <span> idDAGENE bingo</span>
+            <span> itDAGENE bingo</span>
           </span>
           <div className="newBoard">
             <button onClick={() => this.setState({ confirmReset: true })}>
-              Bytt kjønn / nytt brett
+              Nytt brett
             </button>
           </div>
           <div className="rules">

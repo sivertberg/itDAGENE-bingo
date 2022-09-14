@@ -3,7 +3,8 @@ body {
   user-select: none;
   margin: 0;
   padding: 0;
-  font-family: "ChaletNewYork";
+  font-family: "Helvetica Neue";
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -94,6 +95,7 @@ a:visited {
 
 .newBoard > button {
   font-size: 0.75rem;
+  font-family: "Helvetica Neue";
   display: block;
   border: 0;
   color: #ffffff;
@@ -115,6 +117,7 @@ a:visited {
 
 .rules > button {
   display: block;
+  font-family: "Helvetica Neue";
   border: 0;
   color: #ffffff;
   height: 7vh;
