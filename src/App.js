@@ -37,6 +37,8 @@ class App extends Component {
   }
 
   handleCellChange = (value) => {
+    console.log(this.state.text[value]);
+
     let cells = this.state.chosen_cells;
     cells[value % 3][Math.floor(value / 3)] =
       !cells[value % 3][Math.floor(value / 3)];
