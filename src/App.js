@@ -38,8 +38,8 @@ class App extends Component {
 
   handleCellChange = (value) => {
     let cells = this.state.chosen_cells;
-    cells[value % 4][Math.floor(value / 4)] =
-      !cells[value % 4][Math.floor(value / 4)];
+    cells[value % 3][Math.floor(value / 3)] =
+      !cells[value % 3][Math.floor(value / 3)];
     let bingo_rows = this.state.bingo_rows;
     let bingo_cols = this.state.bingo_cols;
     let bingo_diagonal_down = this.state.bingo_diagonal_down;
@@ -51,10 +51,10 @@ class App extends Component {
       });
     });
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       if (!this.state.bingo_cols[i]) {
         let colBingo = true;
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 3; j++) {
           if (!cells[i][j]) {
             colBingo = false;
           }
@@ -67,7 +67,7 @@ class App extends Component {
     }
     if (!bingo_diagonal_down) {
       let diagBingoDown = true;
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 3; i++) {
         if (!cells[i][i]) {
           diagBingoDown = false;
         }
@@ -79,8 +79,8 @@ class App extends Component {
     }
     if (!bingo_diagonal_up) {
       let diagBingoUp = true;
-      for (let i = 0; i < 4; i++) {
-        if (!cells[3 - i][i]) {
+      for (let i = 0; i < 3; i++) {
+        if (!cells[2 - i][i]) {
           diagBingoUp = false;
         }
       }
@@ -89,10 +89,10 @@ class App extends Component {
         is_bingo = true;
       }
     }
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       if (!this.state.bingo_rows[i]) {
         let rowBingo = true;
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 3; j++) {
           if (!cells[j][i]) {
             rowBingo = false;
           }
@@ -129,7 +129,7 @@ class App extends Component {
       bingopile.optionsMale.concat(bingopile.optionsFemale)
     );
     let picks = [];
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 9; i++) {
       if (this.state.bingo_type === "m") {
         let k = Math.floor(Math.random() * maleOptions.length);
         while (picks.indexOf(maleOptions[k]) > -1) {
@@ -156,15 +156,15 @@ class App extends Component {
   generateBoard = () => {
     let pickedText = this.generatePicks(bingopile);
     let matrix = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       matrix[i] = [];
-      for (let j = 0; j < 4; j++) {
+      for (let j = 0; j < 3; j++) {
         matrix[i][j] = false;
       }
     }
     const initState = {
       text: pickedText,
-      bingo_id: this.state.bingo_id + 16,
+      bingo_id: this.state.bingo_id + 9,
       chosen_cells: matrix,
       bingo_rows: [],
       bingo_cols: [],
@@ -302,7 +302,7 @@ class App extends Component {
         <div className="App-header">
           <span className="logo">
             <img src={fireImgOpaque} alt="Abakus logo" />
-            <span> Tinderbingo</span>
+            <span> idDAGENE bingo</span>
           </span>
           <div className="newBoard">
             <button onClick={() => this.setState({ confirmReset: true })}>
@@ -329,8 +329,8 @@ class App extends Component {
                 id={key - 1}
                 content={item}
                 clicked={
-                  this.state.chosen_cells[(key - 1) % 4][
-                    Math.floor((key - 1) / 4)
+                  this.state.chosen_cells[(key - 1) % 3][
+                    Math.floor((key - 1) / 3)
                   ]
                 }
                 handleCellChange={this.handleCellChange}
