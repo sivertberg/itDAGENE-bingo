@@ -41,8 +41,8 @@ class App extends Component {
   handleCellChange = (value) => {
     console.log(this.state.text[value]);
 
-    Popup.alert("Skrt");
-    /*let secret = prompt("Hva er koden?");
+    /*Popup.alert("Skrt");
+    let secret = prompt("Hva er koden?");
 
     if (secret != this.state.text[value]) {
       alert("Feil kode");
