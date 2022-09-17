@@ -6,6 +6,12 @@ import bingopile from "./bingo.json";
 import ReactDom from "react-dom";
 import Popup from "react-popup";
 
+const codes = {
+  "Easee": "TEST1",
+  "Capgemini": "Yo",
+  "MazeMap": "HeiPåDei",
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +30,7 @@ class App extends Component {
     showRules: false,
     confirmReset: false,
     bingo_type: "b",
+    secret_code: "",
   };
 
   componentDidMount() {
@@ -40,7 +47,13 @@ class App extends Component {
 
   handleCellChange = (value) => {
     console.log(this.state.text[value]);
-
+    if (this.state.chosen_cells[value % 3][Math.floor(value / 3)]) {
+      return;
+    }
+    if (!this.state.popup) {
+      this.setState({popup: true, tempCell: value});
+      return;
+    }
     /*Popup.alert("Skrt");
     let secret = prompt("Hva er koden?");
 
@@ -145,6 +158,12 @@ class App extends Component {
     return picks;
   }
 
+  checkCode() {
+    if (this.state.secret_code === codes[this.state.text[this.state.tempCell]]) {
+      this.handleCellChange(this.state.tempCell);
+    }
+  };
+
   generateBoard = () => {
     let pickedText = this.generatePicks(bingopile);
     let matrix = [];
@@ -165,6 +184,7 @@ class App extends Component {
       is_bingo: false,
       is_full_bingo: false,
       bingo_type: this.state.bingo_type,
+      popup: false,
     };
     localStorage.setItem("bingoState", JSON.stringify(initState));
     this.setState(initState);
@@ -177,6 +197,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div
+          className={this.state.popup ? "popup show" : "popup"}
+        >
+            <div>Hva er det hemmelige kodeordet?
+              <br/>
+            <input onChange={(e)=>this.setState({ secret_code: e.target.value })}></input>
+            <button onClick={() => {
+              this.setState({ popup: false });
+              this.checkCode();}}>
+              Send
+            </button>
+            </div>
+          <p onClick={() => this.setState({ popup: false })}>(Trykk for å lukke)</p>
+        </div>
         <div
           className={this.state.is_full_bingo ? "popup show" : "popup"}
           onClick={() => this.setState({ is_full_bingo: false })}
